@@ -6,7 +6,6 @@ import PropTypes from 'prop-types'
 import { childrenPropType } from './PropTypeValues'
 
 export { PageContextProvider }
-// eslint-disable-next-line react-refresh/only-export-components
 export { usePageContext }
 
 const Context = React.createContext(undefined)

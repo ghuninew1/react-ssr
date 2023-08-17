@@ -2,6 +2,7 @@ export { render }
 
 import { hydrateRoot } from 'react-dom/client'
 import { PageShell } from './PageShell'
+import { StrictMode } from 'react'
 
 // This render() hook only supports SSR, see https://vite-plugin-ssr.com/render-modes for how to modify render() to support SPA
 async function render(pageContext) {
@@ -11,9 +12,11 @@ async function render(pageContext) {
   if (!root) throw new Error('DOM element #react-root not found')
   hydrateRoot(
     root,
-    <PageShell pageContext={pageContext}>
-      <Page {...pageProps} />
-    </PageShell>
+    <StrictMode>
+      <PageShell pageContext={pageContext}>
+        <Page {...pageProps} />
+      </PageShell>
+    </StrictMode>
   )
 }
 
